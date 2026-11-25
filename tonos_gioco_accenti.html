@@ -1,0 +1,83 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ΤΌΝΟΣ · Il gioco degli accenti greci</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Noto+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#eaf6ff;--bg2:#b9def5;--card:#fff;--ink:#0a2a4a;--mut:#4b6a88;--sea:#1e7fc4;--sun:#ffc83d;--ok:#12975a;--bad:#e5483a;--line:#cfe3f2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#0a2a4a;--bg2:#061729;--card:#123a63;--ink:#eaf6ff;--mut:#9cc3e4;--sea:#59b4f2;--line:#25557f}}
+:root[data-theme="dark"]{--bg1:#0a2a4a;--bg2:#061729;--card:#123a63;--ink:#eaf6ff;--mut:#9cc3e4;--sea:#59b4f2;--line:#25557f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*,*:before,*:after{box-sizing:inherit}
+body{margin:0;min-height:100%;font:500 18px/1.4 Fredoka,system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0,var(--bg1),var(--bg2)) fixed}
+[hidden]{display:none!important}.gr{font-family:"Noto Serif","Palatino Linotype","Times New Roman",serif;font-weight:600}
+.key{height:18px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='18'%3E%3Cpath d='M0 16h4V3h16v10H9V7h6' fill='none' stroke='%23ffc83d' stroke-width='3'/%3E%3C/svg%3E") repeat-x;background-color:var(--ink)}
+.wrap{max-width:680px;margin:0 auto;padding:14px 16px 40px}
+h1{margin:6px 0 0;text-align:center;font-size:clamp(46px,14vw,84px);line-height:1;letter-spacing:.04em;color:var(--sea);text-shadow:0 5px 0 var(--sun)}
+.sub{text-align:center;color:var(--mut);margin:10px 0 18px}
+.card{background:var(--card);border:3px solid var(--ink);border-radius:20px;box-shadow:0 7px 0 var(--ink);padding:18px;margin-bottom:22px}
+.btn{font:inherit;font-weight:700;color:var(--ink);background:var(--card);border:3px solid var(--ink);border-radius:14px;box-shadow:0 5px 0 var(--ink);padding:10px 12px;cursor:pointer;transition:transform .08s,box-shadow .08s}
+.btn:active:not(:disabled){transform:translateY(4px);box-shadow:0 1px 0 var(--ink)}.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.chip:focus-visible{outline:4px solid var(--sea);outline-offset:2px}
+.btn small{display:block;font-weight:500;font-size:13px;color:var(--mut)}
+.lv{display:flex;align-items:center;gap:14px;width:100%;text-align:left;margin-bottom:14px;background:var(--sun);color:#0a2a4a}.lv .ic{font-size:34px}.lv small{color:#3b4a5e}.lv .st{margin-left:auto;font-size:20px;white-space:nowrap}
+summary{cursor:pointer;font-weight:700}li{margin:8px 0}.hud{display:flex;align-items:center;gap:12px;margin-bottom:10px;font-weight:700}.hud #hearts{margin-left:auto}
+.bar{height:14px;border:3px solid var(--ink);border-radius:9px;background:var(--card);margin-bottom:18px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--sea);transition:width .4s}
+.ask{text-align:center;color:var(--mut)}.big{text-align:center;font-size:clamp(40px,12vw,72px);line-height:1.3;margin:12px 0 18px}
+.opts{display:grid;gap:12px}.opts.o5{grid-template-columns:1fr 1fr}.opts.o3{grid-template-columns:repeat(3,1fr)}.opts.o2{grid-template-columns:1fr 1fr}
+.opts .btn .gr{font-size:40px;line-height:1.1;display:block}
+.good{background:var(--ok)!important;color:#fff}.good small{color:#fff}.wrong{background:var(--bad)!important;color:#fff}.wrong small{color:#fff}
+.chip{font:inherit;font-family:"Noto Serif","Palatino Linotype",serif;font-weight:600;font-size:inherit;color:var(--ink);background:var(--bg1);border:3px dashed var(--sea);border-radius:14px;padding:2px 12px;margin:3px;cursor:pointer;min-width:2.2ch}.chip.on{border-style:solid;background:var(--sun);color:#0a2a4a}
+.tg{text-decoration:underline wavy var(--sun);text-underline-offset:8px}
+.go{width:100%;margin-top:16px;background:var(--sea);color:#fff}
+.fb{border:3px solid var(--ink);border-radius:16px;padding:14px;margin-top:-4px}.fb.ok{background:var(--ok);color:#fff}.fb.bad{background:var(--bad);color:#fff}.fb:empty{display:none}.fb .go{background:var(--card);color:var(--ink)}
+.pop{animation:pop .35s}.shake{animation:shk .4s}@keyframes pop{50%{transform:scale(1.04)}}@keyframes shk{25%{transform:translateX(-9px)}75%{transform:translateX(9px)}}
+.cf{position:fixed;top:-50px;pointer-events:none;animation:fall 2.2s ease-in forwards;z-index:9}@keyframes fall{to{transform:translateY(115vh) rotate(400deg)}}
+.end{text-align:center}.end .stars{font-size:46px}.end .btn{margin:6px 4px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:420px){.opts.o5{grid-template-columns:1fr}}
+</style></head><body><div class="key"></div><div class="wrap">
+<h1>ΤΌΝΟΣ</h1><p class="sub">Il gioco degli accenti greci · nessuna tastiera greca: basta un tocco</p>
+<section id="home"><div class="card"><p style="margin:0 0 14px">Scegli una sfida: 6 prove e 3 vite ❤️ per livello. Una serie di risposte esatte fa salire i punti 🔥</p><div id="lvls"></div></div>
+<details class="card"><summary>📜 Ripasso lampo</summary><ul><li>L’<b>acuto</b> (<span class="gr">ά</span>) può stare sulle ultime tre sillabe: ultima, penultima, terzultima.</li><li>Il <b>circonflesso</b> (<span class="gr">ᾶ</span>) può stare sulle ultime due, e solo su sillaba lunga.</li><li>Il <b>grave</b> (<span class="gr">ὰ</span>) sta solo sull’ultima sillaba, al posto dell’acuto, quando segue un’altra parola. Prima di una pausa (. , ; !) resta l’acuto.</li><li><b>Trisillabismo</b>: l’accento non può stare oltre la terzultima sillaba, e se l’ultima è lunga non oltre la penultima: <span class="gr">ἄνθρωπος → ἀνθρώπου</span>.</li><li><b>Trocheo finale</b>: se la penultima è lunga per natura e l’ultima è breve, l’accento sulla penultima è circonflesso: <span class="gr">νῆσος</span>, ma <span class="gr">νήσου</span> (ultima lunga). Per l’accento, <i>-αι</i> e <i>-οι</i> finali contano come brevi.</li></ul></details></section>
+<section id="game" hidden><div class="hud"><button class="btn" style="padding:4px 10px" onclick="menu()" aria-label="Torna al menu">✕</button><span id="hl"></span><span id="hearts"></span><span>⭐ <b id="sc">0</b></span><span id="stk"></span></div><div class="bar"><i id="pb"></i></div><div class="card" id="q"></div><div class="fb" id="fb" aria-live="polite"></div></section>
+<section id="end" hidden><div class="card end" id="endc"></div></section></div><div class="key"></div>
+<script>
+const $=i=>document.getElementById(i),sh=a=>[...a].sort(()=>Math.random()-.5);
+const strip=s=>s.normalize("NFD").replace(/[\u0300\u0301\u0342]/g,"").normalize("NFC"),grave=s=>s.normalize("NFD").replace(/\u0301/g,"\u0300").normalize("NFC");
+const MK={a:"\u0301",g:"\u0300",c:"\u0342"},V=/[αεηιουωΑΕΗΙΟΥΩ](?=[^αεηιουωΑΕΗΙΟΥΩ]*$)/;
+function put(s,m){const d=s.normalize("NFD");let p=d.search(V)+1;while(/[\u0313\u0314]/.test(d[p]||""))p++;return(d.slice(0,p)+MK[m]+d.slice(p)).normalize("NFC")}
+const mark=s=>{const d=s.normalize("NFD");return d.includes("\u0301")?"a":d.includes("\u0342")?"c":d.includes("\u0300")?"g":0};
+const mk=w=>{const s=w.split('-'),k=s.findIndex(mark);return{s,k,m:mark(s[k]),n:s.length,w:s.join('')}};const W="ἄν-θρω-πος,λό-γος,θε-ός,ἀ-δελ-φός,τι-μή,οἶ-κος,δῶ-ρον,φί-λος,πο-τα-μός,ἀ-γο-ρά,θά-λατ-τα,νῆ-σος,σο-φί-α,πό-λις,χώ-ρα,ψυ-χή,κῆ-πος,Ἄρ-τε-μις,γῆ,πρᾶγ-μα".split(',').map(mk);
+const TY={a:[["Ossìtona","acuto sull’ultima"],["Parossìtona","acuto sulla penultima"],["Proparossìtona","acuto sulla terzultima"]],c:[["Perispòmena","circonflesso sull’ultima"],["Properispòmena","circonflesso sulla penultima"]]},ALL=[...TY.a,...TY.c],ty=w=>TY[w.m][w.n-1-w.k];
+const P=[["ὁ ","θεός"," ἀγαθός."],["ὁ θεὸς ","ἀγαθός","."],["ἡ ","τιμή"," μεγάλη."],["μεγάλη ἡ ","ψυχή","!"],["ὁ ","ποταμός"," μέγας."],["ἡ ","ἀγορά"," μεγάλη."]].map(p=>({p,m:/^[ .,;!]*[^ ]/.test(p[2])&&p[2][0]==" "?"g":"a"}));
+const LV=[["🔍","Riconosci l’accento","Che tipo di parola è?"],["✍️","Metti l’accento","Scegli sillaba e accento"],["⚖️","Acuto o grave?","Davanti a un’altra parola o a una pausa?"],['📏','Il trisillabismo','Dove va l’accento?'],['🎵','Il trocheo finale','Che accento prende la sillaba sottolineata?'],['🧠','Quale legge?','Quale legge spiega la posizione dell’accento?']];
+const PR='ἄν-θρω-πος>ἀν-θρώ-που,ἄν-θρω-πος>ἄν-θρω-πον,ἄν-θρω-πος>ἄν-θρω-ποι,ἄν-θρω-πος>ἀν-θρώ-πων,θά-λατ-τα>θα-λάτ-της,θά-λατ-τα>θά-λατ-ταν,θά-λατ-τα>θα-λάτ-τας,ἄ-νε-μος>ἀ-νέ-μου,ἄ-νε-μος>ἄ-νε-μοι,πό-λε-μος>πο-λέ-μων,πό-λε-μος>πό-λε-μον,ἄγ-γε-λος>ἀγ-γέ-λου,ἄγ-γε-λος>ἄγ-γε-λοι'.split(',').map(x=>{const[b,f]=x.split('>');return{...mk(f),b:b.split('-').join('')}});
+const T5='νῆ-σος,νή-σου,νή-σων,νῆ-σον,νῆ-σοι,οἶ-κος,οἴ-κου,οἴ-κων,οἶ-κον,δῶ-ρον,δώ-ρου,δώ-ρων,δῶ-ρα,κῆ-πος,κή-που,κῆ-ποι'.split(',').map(mk);
+const LAW=['ἀν-θρώ-που,ἀν-θρώ-πων,θα-λάτ-της,ἀ-νέ-μου,πο-λέ-μων,ἀγ-γέ-λου','νῆ-σος,οἶ-κον,δῶ-ρα,κῆ-ποι,νῆ-σον,οἶ-κος'].flatMap((s,i)=>s.split(',').map(w=>({...mk(w),law:i?'tro':'tri'})));
+const endg=q=>strip(q.s[q.n-1]).replace(/^[^αεηιουω]+/,''),isL=q=>/^(ου|ων|ης|ας)$/.test(endg(q));
+const why3=q=>isL(q)?`L’ultima (-${endg(q)}) è lunga: per il trisillabismo l’accento non può stare sulla terzultima, quindi sta sulla penultima.`:`L’ultima (-${endg(q)}) è breve: l’accento può restare sulla terzultima.`;
+function ans2(m,q){let ok,c,msg;if(G.l==4){ok=m==q.m;c=q.m;msg=`Penultima lunga per natura, ultima ${isL(q)?'lunga':'breve'} (-${endg(q)}): `+(q.m=='c'?'trocheo finale, quindi circonflesso.':'niente trocheo finale, quindi acuto.')+(ok?'':` Si scrive «${q.w}».`)}else{ok=m==q.law;c=q.law;msg=q.law=='tri'?`Trisillabismo: l’ultima (-${endg(q)}) è lunga, quindi l’accento non può restare sulla terzultima e passa sulla penultima.`:`Trocheo finale: penultima lunga e ultima breve (-${endg(q)}), quindi circonflesso sulla penultima.`}res(ok,c,msg,m)}
+let ST=[0,0,0,0,0,0],G;try{ST=[...JSON.parse(localStorage.getItem('tonos')||'[]'),0,0,0,0,0,0].slice(0,6)}catch(e){}
+function menu(){$("game").hidden=$("end").hidden=1;$("home").hidden=0;$("lvls").innerHTML=LV.map((l,i)=>`<button class="btn lv" onclick="start(${i})"><span class="ic">${l[0]}</span><span>Livello ${i+1}<small>${l[1]}</small></span><span class="st">${"⭐".repeat(ST[i])}${"☆".repeat(3-ST[i])}</span></button>`).join("")}
+function start(l){G={l,i:0,lives:3,sc:0,st:0,err:0,lock:0,sel:-1,ac:0,q:sh([W,W,P,PR,T5,LAW][l]).slice(0,6)};$("home").hidden=$("end").hidden=1;$("game").hidden=0;draw()}
+function hud(){$("hl").textContent="Livello "+(G.l+1);$("hearts").textContent="❤️".repeat(G.lives)+"🖤".repeat(3-G.lives);$("sc").textContent=G.sc;$("stk").textContent=G.st>1?"🔥×"+G.st:"";$("pb").style.width=(G.i/G.q.length*100)+"%"}
+function draw(){const q=G.q[G.i];G.lock=0;G.sel=-1;G.ac=0;$("fb").className="fb";$("fb").innerHTML="";hud();const A=(m,n)=>`<button class="btn" data-t="${m}" onclick="ans('${m}')"><span class="gr">${put("α",m)}</span><small>${n}</small></button>`;let h=`<div class='ask'>${G.l==3?`Forma di partenza: <b class='gr'>${q.b}</b>. Dove va l’accento nella forma declinata?`:LV[G.l][2]}</div>`;
+if(G.l==0)h+=`<div class="big gr">${q.w}</div><div class="opts o5">${ALL.map(t=>`<button class="btn" data-t="${t[0]}" onclick="ans('${t[0]}')">${t[0]}<small>${t[1]}</small></button>`).join("")}</div>`;
+if(G.l==1||G.l==3)h+=`<div class="big gr" id="syl"></div><div class="opts o3">${A("a","acuto")}${A("g","grave")}${A("c","circonflesso")}</div><button class="btn go" id="chk" onclick="chk()" disabled>Controlla ✓</button>`;
+if(G.l==2)h+=`<div class="big gr">${q.p[0]}<span class="tg">${strip(q.p[1])}</span>${q.p[2]}</div><div class="opts o2">${A("a","acuto")}${A("g","grave")}</div>`;
+if(G.l==4)h+=`<div class='big gr'>${q.s.map((x,j)=>j==q.n-2?`<span class='tg'>${strip(x)}</span>`:strip(x)).join('')}</div><div class='opts o2'>${A('a','acuto')}${A('c','circonflesso')}</div>`;
+if(G.l==5)h+=`<div class='big gr'>${q.w}</div><div class='opts o2'><button class='btn' data-t='tri' onclick="ans('tri')">Trisillabismo<small>l’accento non va oltre la terzultima</small></button><button class='btn' data-t='tro' onclick="ans('tro')">Trocheo finale<small>penultima lunga + ultima breve</small></button></div>`;
+$('q').innerHTML=h;if(G.l==1||G.l==3)chips()}
+function chips(){const q=G.q[G.i];$("syl").innerHTML=q.s.map((x,j)=>`<button class="chip${j==G.sel?" on":""}" onclick="pick(${j})">${j==G.sel&&G.ac?put(strip(x),G.ac):strip(x)}</button>`).join("");$("chk").disabled=!(G.sel>=0&&G.ac)}
+function pick(j){if(!G.lock){G.sel=j;chips()}}
+function ans(m){if(G.lock)return;const q=G.q[G.i];if(G.l==1||G.l==3){G.ac=m;chips();return}if(G.l>=4)return ans2(m,q);
+document.querySelectorAll("#q .opts .btn").forEach(b=>b.dataset.t==m&&(b.dataset.c=1));
+if(G.l==0){const t=ty(q),ok=m==t[0];res(ok,t[0],ok?`${t[0]}: ${t[1]}.`:`Era «${t[0]}»: ${t[1]}.`,m)}
+else{const ok=m==q.m,w=strip(q.p[1]);res(ok,q.m,(q.m=="g"?"Davanti a un’altra parola l’acuto dell’ultima diventa grave":"Prima di una pausa l’acuto resta acuto")+(ok?".":`: si scrive «${q.m=="g"?grave(q.p[1]):q.p[1]}».`),m)}}
+function chk(){if(G.lock)return;const q=G.q[G.i],ok=G.sel==q.k&&G.ac==q.m,t=ty(q);res(ok,0,(ok?"":`Si scrive «${q.w}». `)+(G.l==3?why3(q):`${t[0]}: ${t[1]}.`),0)}
+function res(ok,c,msg,ch){G.lock=1;document.querySelectorAll("#q .opts .btn").forEach(b=>{b.disabled=1;b.style.opacity=1;if(b.dataset.t==c)b.classList.add("good");else if(b.dataset.t==ch)b.classList.add("wrong")});const q=$("q");q.classList.remove("pop","shake");void q.offsetWidth;q.classList.add(ok?"pop":"shake");
+if(ok){G.st++;G.sc+=10+Math.min(G.st-1,4)*2}else{G.st=0;G.lives--;G.err++}if(G.l==1||G.l==3)$('chk').disabled=1;hud();
+const last=G.lives<1||G.i>=G.q.length-1;$("fb").className="fb "+(ok?"ok":"bad");$("fb").innerHTML=`<b>${ok?["Bravo!","Esatto!","Ottimo!","Perfetto!"][G.sc%4]:"Non ancora!"}</b> ${msg}<button class="btn go" onclick="${last?"fin()":"nx()"}">${last?"Vai al risultato":"Prossima prova"}</button>`}
+function nx(){G.i++;draw()}
+function fin(){const win=G.lives>0,s=win?Math.max(1,3-G.err):0;if(s>ST[G.l]){ST[G.l]=s;try{localStorage.setItem("tonos",JSON.stringify(ST))}catch(e){}}
+$("game").hidden=1;$("end").hidden=0;$("endc").innerHTML=`<div style="font-size:54px">${win?"🏛️":"💔"}</div><h2 style="margin:6px 0">${win?"Livello superato!":"Vite finite"}</h2><div class="stars">${"⭐".repeat(s)}${"☆".repeat(3-s)}</div><p>Punti: <b>${G.sc}</b> · Errori: ${G.err}</p><button class="btn" onclick="start(${G.l})">${win?"Rigioca":"Riprova"}</button>${win&&G.l<5?`<button class="btn go" style="width:auto" onclick="start(${G.l+1})">Livello ${G.l+2} ➜</button>`:""}<button class="btn" onclick="menu()">Menu</button>`;if(win)boom()}
+function boom(){for(let i=0;i<28;i++){const s=document.createElement("span");s.className="cf";s.textContent=["⭐","🏺","✨","🫒"][i%4];s.style.cssText=`left:${Math.random()*100}%;animation-delay:${Math.random()*.7}s;font-size:${18+Math.random()*18}px`;document.body.appendChild(s);setTimeout(()=>s.remove(),3200)}}
+menu();
+</script></body></html>
